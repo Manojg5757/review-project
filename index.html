@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Review Page</h1>
+       <div class="container">
+         <div class="container-div">
+        <!-- image section -->
+          <div class="img-box">
+            <span></span>
+            <img id="profile" src="./images/person1.jpg" alt="authors">
+          </div>
+          <p id="authors">marhta</p>
+          <p id="job">Web developer</p>
+          <p id="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non dicta accusamus accusantium, ducimus sapiente mollitia quas corporis nihil. Quidem, temporibus!</p>
+          <div class="toggle">
+               <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+               <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <button id="random" class="surprise">Surprise</button>
+         </div>
+       </div>
+       <script src="https://kit.fontawesome.com/1c7362fc78.js" crossorigin="anonymous"></script>
+    <script>
+        const reviews = [
+    {
+        id:1,
+        author_name:"Martha Bruce",
+        job:"Web Designer",
+        info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ex ullam fugit earum nesciunt provident tempora nihil recusandae? Corporis, debitis?",
+        img:'./images/person1.jpg'
+    },
+    {
+        id:2,
+        author_name:"Elena Raven",
+        job:"Web Developer",
+        info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ex ullam fugit earum nesciunt provident tempora nihil recusandae? Corporis, debitis?",
+        img:'./images/person2.jpg'
+    },
+    {
+        id:3,
+        author_name:"Lock Lambert",
+        job:"Android Developer",
+        info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ex ullam fugit earum nesciunt provident tempora nihil recusandae? Corporis, debitis?",
+        img:'./images/person3.jpg'
+    },
+    {
+        id:4,
+        author_name:"Dante Vel",
+        job:"Ios Developer",
+        info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ex ullam fugit earum nesciunt provident tempora nihil recusandae? Corporis, debitis?",
+        img:'./images/person4.jpg'
+    },
+    {
+        id:5,
+        author_name:"Emilie Blunt",
+        job:"ML Engineer",
+        info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ex ullam fugit earum nesciunt provident tempora nihil recusandae? Corporis, debitis?",
+        img:'./images/person5.jpg'
+    },
+]
+
+let profile_img = document.getElementById("profile")
+let authors = document.getElementById("authors")
+let job = document.getElementById("job")
+let info = document.getElementById("info")
+
+let left = document.getElementById("left")
+let right = document.getElementById("right")
+let surprise = document.getElementById("random")
+
+let current = 0
+window.addEventListener("DOMContentLoaded",(()=>{
+     setItems(0)
+     
+}))
+
+right.addEventListener('click',(()=>{
+     current++
+     if(current > reviews.length - 1){
+        current = 0
+     }
+     setItems(current)
+    
+}))
+
+left.addEventListener('click',(()=>{
+    current--
+    if(current < 0){
+       current = reviews.length - 1
+    }
+    setItems(current)
+   
+}))
+
+
+
+function setItems(current){
+    let item = reviews[current]
+    profile_img.src = item.img
+    authors.innerText = item.author_name
+    job.innerText = item.job
+    info.innerText = item.info
+}
+    </script>
+</body>
+</html>
